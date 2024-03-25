@@ -5,20 +5,31 @@
 #include "structure.h"
 #define MAX 1024
 char* readAnimal(const char *file_path) {
-    int id = read_id(); //reading animal's
+    int id = read_id(); //reading animal's id
     FILE *file = fopen(file_path, "r");
     char line[MAX];
-    
+    char *content = NULL;
+    int i=0,id_line;
+    char ident[5];
     while (fgets(line, sizeof(line), file) != NULL) {
-        int id;
-        
-        if (id == Animal_id) {
-            char *content = malloc(strlen(line) + 1);
-            strcpy(content, line);
-            return content;
+        while (line[i]!=',' && line[i]!='\0' && i<sizeof(ident)- 1)
+        {
+            ident[i] = line [i];
+            i++;
         }
+        ident[i] = '\0';
+        id_line = atoi(ident);
+        if (id_line==id)
+        {
+            content = malloc(strlen(line)+1);
+            if (content)
+            {
+                strcpy(content, line);
+            }
+            
+        }
+        
     }
-
     fclose(file);
-    return NULL;
+    return content;
 }
