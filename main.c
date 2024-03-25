@@ -4,7 +4,7 @@
 #include "readAnimal.h"
 #include "choices.h"
 #include "read_id.h"
-#define ANIMALSMAX 30
+#define ANIMALSMAX 130
 int main()
 {
     const char *path="/home/hafsa/Animals_list.txt";
@@ -22,13 +22,13 @@ int main()
     }
     else if(ch==2)
     {
-        printf("wait");
+
     char* animals_arr[ANIMALSMAX];
-    for (int i = 0; i < ANIMALSMAX; i++) //filling the array of articles
+    for (int i = 101; i < ANIMALSMAX; i++) //filling the array of articles
     {
         animals_arr[i]=readAnimal(path,i+1);
     }
-    for(int i=0;i<ANIMALSMAX;i++) //printing out all elements
+    for(int i=0;i<=ANIMALSMAX;i++) //printing out all elements
     {
         printf("Animal %d: %s\n", i + 1, animals_arr[i]);
     }
