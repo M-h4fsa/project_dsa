@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "read_id.h"
+#include "structure.h"
 #define MAX 1024
-
-char* readAnimal(const char *file_path, int Animal_id) {
+char* readAnimal(const char *file_path) {
+    int id = read_id(); //reading animal's
     FILE *file = fopen(file_path, "r");
     char line[MAX];
     

@@ -11,8 +11,7 @@ int main()
     int ch = choices();
     if(ch==1)
     {
-    int id = read_id(); //reading pet's id
-    char *content = readAnimal(path, id); //reading an element according to the id
+    char *content = readAnimal(path); //reading an element according to the id
     if(content != NULL)
     {
         printf("id %d content:\n%s\n",id,content);

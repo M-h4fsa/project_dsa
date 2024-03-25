@@ -1,5 +1,5 @@
 #include <stdio.h>
-int read_num()
+int read_id()
 {
     int n;
     do
