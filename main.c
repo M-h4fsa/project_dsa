@@ -1,26 +1,28 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "read_id.h"
 #include "readAnimal.h"
 #include "choices.h"
+#include "read_id.h"
 #define ANIMALSMAX 30
 int main()
 {
     const char *path="/home/hafsa/Animals_list.txt";
     int ch = choices();
+    int id = read_id(); //reading animal's id
     if(ch==1)
     {
-    char *content = readAnimal(path); //reading an element according to the id
+    char *content = readAnimal(path,id); //reading an element according to the id
     if(content != NULL)
     {
-        printf("id %d content:\n%s\n",id,content);
+        printf("id content:\n%s\n",content);
     }else{
         printf("failed to read the file.\n");
     }
     }
     else if(ch==2)
     {
+        printf("wait");
     char* animals_arr[ANIMALSMAX];
     for (int i = 0; i < ANIMALSMAX; i++) //filling the array of articles
     {

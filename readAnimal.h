@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "read_id.h"
 #include "structure.h"
 #define MAX 1024
-char* readAnimal(const char *file_path) {
-    int id = read_id(); //reading animal's id
+char* readAnimal(const char *file_path, int id) {
     FILE *file = fopen(file_path, "r");
     char line[MAX];
     char *content = NULL;
-    int i=0,id_line;
-    char ident[5];
-    while (fgets(line, sizeof(line), file) != NULL) {
-        while (line[i]!=',' && line[i]!='\0' && i<sizeof(ident)- 1)
+
+    while (fgets(line, sizeof(line), file)) {
+        int i=0,id_line=0;
+        char ident[5];
+        while (line[i]!=',')
         {
             ident[i] = line [i];
             i++;
