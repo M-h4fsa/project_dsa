@@ -16,4 +16,4 @@
         float weight;
         float price;
         vaxdate vax_date;
-    }animal; 
+    }animal;
