@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "structure.h"
 #define MAX 1024
 char* readAnimal(const char *file_path, int id) {
     FILE *file = fopen(file_path, "r");
