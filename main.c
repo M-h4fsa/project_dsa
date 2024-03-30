@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "readAnimal.h"
-#include "choices.h"
-#include "read_id.h"
-#include "password.h"
 #include "structures.h"
 #define ANIMALSMAX 30
 

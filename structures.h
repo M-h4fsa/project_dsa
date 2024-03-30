@@ -18,8 +18,3 @@
         float price;
         vaxdate vax_date;
     }animal;
-    
-    typedef struct {
-    int animalID;
-    int quantity;
-    } PurchaseItem;
