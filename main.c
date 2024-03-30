@@ -5,11 +5,10 @@
 #include "choices.h"
 #include "read_id.h"
 #include "password.h"
-#include "structure.h"
+#include "structures.h"
 #define ANIMALSMAX 30
 
 int main() {
-    pass();
     const char *path="/home/hafsa/Animals_list.txt";
     FILE *file = fopen(path, "r");
     if (file == NULL) {
@@ -22,7 +21,7 @@ int main() {
     while (1) {
         int readCount = fscanf(file, "%d,%79[^,],%79[^,],%d,%f,%f,", &animals[i].ID, animals[i].name, animals[i].breed, &animals[i].quantity, &animals[i].weight, &animals[i].price);
         if (readCount == EOF) break; //Reaching End of file
-        if (fscanf(file, "%2d%3s%4d,", &day, month, &year) == 3) { //3 fields assigned(dd-mmm-yyyy)
+        if (fscanf(file, "%2d%3s%4d,", &day, month, &year) == 3) { //03 fields assigned(dd-mmm-yyyy)
             //existent date
             animals[i].vax_date.day = day;
             strcpy(animals[i].vax_date.month, month);
