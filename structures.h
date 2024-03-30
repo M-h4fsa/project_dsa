@@ -7,6 +7,7 @@
       char month[4];
       int year;
      }vaxdate;
+
     typedef struct
     {
         int ID;
@@ -17,3 +18,8 @@
         float price;
         vaxdate vax_date;
     }animal;
+    
+    typedef struct {
+    int animalID;
+    int quantity;
+    } PurchaseItem;
