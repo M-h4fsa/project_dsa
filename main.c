@@ -6,42 +6,47 @@
 #include "read_id.h"
 #include "structure.h"
 #define ANIMALSMAX 30
-int main()
-{
+
+int main() {
     const char *path="/home/hafsa/Animals_list.txt";
-    //int ch = choices();
+    // int ch = choices();
     FILE *file = fopen(path, "r");
     if (file == NULL) {
         printf("Failed to open file\n");
         return 1;
     }
-    animal animals[30]; //number of animals available
-    char tempDate[10]; // Temporary buffer for date
-    int i = 0;
-    while(fscanf(file, "%d,%79[^,],%79[^,],%d,%f,%f,%9s,\n", &animals[i].ID, animals[i].name, animals[i].breed, &animals[i].quantity, &animals[i].weight, &animals[i].price, tempDate) != EOF) {
-        if (strcmp(tempDate,"NA") == 0) { //in case there is no vaccination date
 
-            animals[i].vax_date.day = 0; // Indicating inexistant date
-            strcpy(animals[i].vax_date.month,"NA");
-            animals[i].vax_date.year = 0;
+    animal animals[ANIMALSMAX]; //number of animals available
+    int i = 0, day, year;
+    char month[4];
+    while (1) {
+        int readCount = fscanf(file, "%d,%79[^,],%79[^,],%d,%f,%f,", &animals[i].ID, animals[i].name, animals[i].breed, &animals[i].quantity, &animals[i].weight, &animals[i].price);
+        if (readCount == EOF) break; // End of file
+        if (fscanf(file, "%2d%3s%4d,", &day, month, &year) == 3) {
+            // Successfully read a date
+            animals[i].vax_date.day = day;
+            strcpy(animals[i].vax_date.month, month);
+            animals[i].vax_date.year = year;
         } else {
-            // indicating exitent date
-            sscanf(tempDate, "%2d%3s%4d", &animals[i].vax_date.day, animals[i].vax_date.month, &animals[i].vax_date.year);
+            // Date is "NA" or incorrectly formatted, fscanf didn't match 3 items
+            fscanf(file, "%*s"); // Skip the "NA," part (or any non-matching part)
+            animals[i].vax_date.day = 0;
+            strcpy(animals[i].vax_date.month, "NA");
+            animals[i].vax_date.year = 0;
         }
         i++;
+        if (i >= ANIMALSMAX) break; // Safety check to prevent overflow
     }
     fclose(file);
-    printf("%d\n",i);
-        for (int j = 0; j < i; j++) {
+    for (int j = 0; j < i; j++) {
         printf("\nID: %d, Name: %s, Breed: %s, Quantity: %d, Weight: %.2f, Price: %.2f", animals[j].ID, animals[j].name, animals[j].breed, animals[j].quantity, animals[j].weight, animals[j].price);
-        if (strcmp(animals[j].vax_date.month, "NA") != 0) {
+        if (animals[j].vax_date.day != 0) {
             printf(", Vax Date: %02d%s%d\n", animals[j].vax_date.day, animals[j].vax_date.month, animals[j].vax_date.year);
         } else {
             printf(", Vax Date: None\n");
         }
         printf("\n______________________________________________________________________________________________________________________\n");
     }
-    return 0;
     /*if(ch==1)
     {
     int id = read_id(); //reading animal's id
