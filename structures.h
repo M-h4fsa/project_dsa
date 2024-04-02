@@ -1,6 +1,8 @@
 #include <string.h>
 #include <stdlib.h>
 #define N 80
+#ifndef STRUCTURES_H
+#define STRUCTURES_H
     typedef struct
     {
       int day;
@@ -18,4 +20,4 @@
         float price;
         vaxdate vax_date;
     }animal;
-
+#endif // STRUCTURES_H
