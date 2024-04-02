@@ -18,3 +18,4 @@
         float price;
         vaxdate vax_date;
     }animal;
+
