@@ -30,5 +30,14 @@ void PopStruct(const char *path)
         i++;
         if (i >= ANIMALSMAX) break; //prevent overflow
     }
+         /* for (int j = 0; j < i; j++) {
+        printf("\nID: %d, Name: %s, Breed: %s, Quantity: %d, Weight: %.2f, Price: %.2f", animals[j].ID, animals[j].name, animals[j].breed, animals[j].quantity, animals[j].weight, animals[j].price);
+        if (animals[j].vax_date.day != 0) {
+            printf(", Vax Date: %02d%s%d\n", animals[j].vax_date.day, animals[j].vax_date.month, animals[j].vax_date.year);
+        } else {
+            printf(", Vax Date: None\n");
+        }
+        printf("\n______________________________________________________________________________________________________________________\n");
+    }*/
     fclose(file);
 }

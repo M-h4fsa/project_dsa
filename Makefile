@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -g # Add more flags as needed
 TARGET = myprogram
 SOURCES = main.c 
 OBJECTS = $(SOURCES:.c=.o)
-HEADERS = choices.h readAnimal.h read_id.h structure.h
+HEADERS = choices.h readAnimal.h read_id.h structures.h CRUD.h PopulateStruct.h
 
 # Library settings
 LIB_DIR = /usr
