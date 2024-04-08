@@ -7,41 +7,41 @@ animal ReadUsr(void)
     animal newAnimal;
     char buffer[256]; // Buffer for fgets
 
-    printf("Enter ID: ");
+    printf("🔍 Enter ID: ");
     scanf("%d", &newAnimal.ID);
     while(getchar() != '\n'); // Clear the input buffer
 
-    printf("Enter name: ");
+    printf("🏷️ Enter name: ");
     fgets(newAnimal.name, sizeof(newAnimal.name), stdin);
     newAnimal.name[strcspn(newAnimal.name, "\n")] = 0; // Remove newline character
 
-    printf("Enter breed: ");
+    printf("🧬 Enter breed: ");
     fgets(newAnimal.breed, sizeof(newAnimal.breed), stdin);
     newAnimal.breed[strcspn(newAnimal.breed, "\n")] = 0;
 
-    printf("Enter quantity: ");
+    printf("🔢 Enter quantity: ");
     scanf("%d", &newAnimal.quantity);
     while(getchar() != '\n'); // Clear the input buffer
 
-    printf("Enter weight: ");
+    printf("⚖️ Enter weight: ");
     scanf("%f", &newAnimal.weight);
     while(getchar() != '\n'); // Clear the input buffer
 
-    printf("Enter price: ");
+    printf("💲 Enter price: ");
     scanf("%f", &newAnimal.price);
     while(getchar() != '\n'); // Clear the input buffer
 
     // For vaccination date, assuming you want the month as a string and day, year as integers
-    printf("Enter vaccination day: ");
+    printf("📅 Enter vaccination day: ");
     scanf("%d", &newAnimal.vax_date.day);
     while(getchar() != '\n'); // Clear the input buffer
 
-    printf("Enter vaccination month (3 characters): ");
+    printf("📅 Enter vaccination month (3 characters): ");
     fgets(buffer, sizeof(buffer), stdin);
     strncpy(newAnimal.vax_date.month, buffer, 3); // Copy only first 3 characters
     newAnimal.vax_date.month[3] = '\0'; // Ensure null termination
 
-    printf("Enter vaccination year: ");
+    printf("📅 Enter vaccination year: ");
     scanf("%d", &newAnimal.vax_date.year);
     while(getchar() != '\n'); // Clear the input buffer
     return newAnimal;

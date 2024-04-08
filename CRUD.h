@@ -113,4 +113,16 @@ void editLineById(const char* filename, const char* id, const char* newContent) 
 }
 //description:
 //************
-/**/
+/*"CRUD", which stands for "create, read, update, delete", is a name chosen for this header file to allow it to run crucial functions
+in the program. The functions are:
+1."addAnimalToFile": this function will first open the data file in "append" mode before using the "fprintf" function to fill the 
+structure "animal", it will then add these informations at the bottom of the data file, which results to the addition of a new animal
+to our animals list.
+2."deleteAnimalFromFile": the function will open the temporary file in writing mode after reading the data file given, it will then
+use a loop to write the content of the data file in the temporary file, while making sure to skip the line that contains the ID 
+wished to be deleted, and after closing the files and finishing the operation, we make sure to delete the previous data file and rename
+the temporary file the same name as the data file deleted, thus it will result to having a new file that does not contain
+the animal we wished to delete.
+3."editLineById": this function works the same way as "deleteAnimalFromFile", although, the extra step is when the loop finally ends 
+up finding the ID contained in the line wished to edit, the program asks for the new content that will replace that line, and for that,
+we'll copy the new content inputted (located in a buffer) to the location of the line desired to edit.*/

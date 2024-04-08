@@ -9,7 +9,7 @@
 #include "read_id.h"
 #include "password.h"
 #include "invoice.h"
-#define ANIMALSMAX 30
+#define ANIMALSMAX 100
 
 int main() {
    printf("\n🔐 Please enter the password to access the Pet&Co. Animal Management System: ");

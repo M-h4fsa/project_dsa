@@ -7,7 +7,7 @@
 void processAnimalPurchases(const char* filePath) {
     FILE *file;
     char line[256];
-    animal available_animals[MAX_ANIMALS];
+    animal available_animals[MAX_ANIMALS];//buffer of type struct
     int animal_count = 0;
 
     file = fopen(filePath, "r");
@@ -42,7 +42,7 @@ void processAnimalPurchases(const char* filePath) {
     scanf("%d", &num_purchases);
 
     printf("\n");
-    animal purchases[num_purchases];
+    animal purchases[num_purchases]; //buffer of type struct
     for(int i = 0; i < num_purchases; i++) {
         int id, quantity;
         printf("🐶 For animal #%d, enter the ID and quantity (e.g., 101 2): ", i + 1);
@@ -50,9 +50,9 @@ void processAnimalPurchases(const char* filePath) {
 
         for(int j = 0; j < animal_count; j++) {
             if(available_animals[j].ID == id) {
-                purchases[i] = available_animals[j];
+                purchases[i] = available_animals[j]; //storing informations in buffer to use in the invoice
                 purchases[i].quantity = quantity;
-                total_cost += purchases[i].price * purchases[i].quantity;
+                total_cost += purchases[i].price * purchases[i].quantity; //calculating total cost
                 break;
             }
         }
@@ -60,15 +60,24 @@ void processAnimalPurchases(const char* filePath) {
 
     printf("\n--- Your Invoice ---\n\n");
     for(int i = 0; i < num_purchases; i++) {
-        printf("%d x %s (%s) @ %.2f da each\n", 
+        printf("%d x %s (%s) --> %.2f da each\n", 
                purchases[i].quantity, 
                purchases[i].name, 
                purchases[i].breed, 
                purchases[i].price);
-        printf("Subtotal for this item: %.2f da\n\n", 
+        printf("Subtotal for this purchase: %.2f da\n\n", 
                purchases[i].price * purchases[i].quantity);
     }
     printf("Total cost of all purchases: %.2f da\n", total_cost);
     printf("-----------------------------\n");
     printf("🐾 Thank you for your purchase! 🐾\n");
 }
+//description:
+//************
+/*the function "processAnimalPurchases" is a function used to display an invoice for customers after they're done with their purchases.
+It will first open the file in read mode before fetching the data (animal & quantity & price) needed from the structure "animal" 
+(using sscanf) and storing it in a buffer (available_animals of type "animal" struct), then, for the display of invoice,
+we'll use another buffer (purchases of type "animal" struct) to store the desired number of purchases in it (including the necessary 
+informations mentioned in the structure "animal"), after that, we'll introduce a loop that will store the informations from
+'available_animals' in 'purchases' after checking if the ID stored in 'available_animals' matches the given ID, and to finish it off
+we display the full invoice while making sure to calculate the subtotal and total cost (as shown in line 55 (total) and 68 (subtotal))*/
