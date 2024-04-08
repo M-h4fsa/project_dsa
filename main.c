@@ -17,7 +17,7 @@ int main() {
         printf("Incorrect password. Exiting program.\n");
         return 1;
     }
-    const char *path = "/home/hafsa/Animals_list.txt";
+    const char *path = "/home/hafsa/Pet&Co./Animals_list.txt";
     animal animals[ANIMALSMAX];
     PopStruct(path,animals,ANIMALSMAX);
 

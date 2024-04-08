@@ -23,7 +23,7 @@ void PopStruct(const char *path, animal *animals, int maxAnimals) {
             fscanf(file, "%*s"); // Skip the "NA," using *
             animals[i].vax_date.day = 0;
             strcpy(animals[i].vax_date.month, "NA");
-            animals[i].vax_date.year = 0000;
+            animals[i].vax_date.year = 0;
         }
         i++;
     }
@@ -39,7 +39,7 @@ void DisplayAnimals(animal *animals, int size) {
         printf("Quantity: %d\n", animals[i].quantity);
         printf("Weight: %.2f\n", animals[i].weight);
         printf("Price: %.2f\n", animals[i].price);
-        printf("Vaccination Date: %02d-%s-%d\n\n",
+        printf("Vaccination Date: %d-%s-%d\n\n",
                animals[i].vax_date.day,
                animals[i].vax_date.month,
                animals[i].vax_date.year);
