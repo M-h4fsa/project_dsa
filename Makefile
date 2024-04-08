@@ -1,6 +1,6 @@
-# Compiler settings - Can change CC to something else, like clang
+# Compiler settings
 CC = gcc
-CFLAGS = -Wall -Wextra -g # Add more flags as needed
+CFLAGS = -Wall -Wextra -g 
 
 # Project settings
 TARGET = myprogram
@@ -10,7 +10,6 @@ HEADERS = readAnimal.h read_id.h structures.h CRUD.h PopulateStruct.h invoice.h 
 
 # Library settings
 LIB_DIR = /usr
-#LIBS = -lm -lmylib # Example libraries
 INCLUDES = -I$(LIB_DIR)/include
 
 # Compile and assemble C source files into object files
