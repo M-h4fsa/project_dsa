@@ -50,7 +50,7 @@ void DisplayAnimals(animal *animals, int size) {
 /*the Header "PopulateStruct" contains two important functions, which are:
 1."PopStruct": a function used to populate the structure "animal" contained in the header "structures.h", it has a system of
 parsing vaccination date which helps the user know which animal requires a vaccination date or not (NA case), and for that
-we use a condition that will set the 'vax_date' to '00NA0000' as a way to know that the animal does not require a vaccination
+we use a condition that will set the 'vax_date' to '0NA0' as a way to know that the animal does not require a vaccination
 date (NOT APPLICABLE) when the 'while' loop encounters 'NA' sign instead of a valid date.
 2."DisplayAnimals": is a function related to "PopStruct", this one will use a simple 'for' loop to display all animals in the
 data file according to their place in the structure "animal".*/
